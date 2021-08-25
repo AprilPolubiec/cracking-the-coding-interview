@@ -29,6 +29,9 @@ class Node {
 
 // O(1) time; O(1) space
 const deleteNode = (node_to_delete) => {
+  if (!node_to_delete || !node_to_delete.next) {
+    throw new Error("Invalid node");
+  }
   node_to_delete.value = node_to_delete.next.value;
   node_to_delete.next = node_to_delete.next.next;
 };
